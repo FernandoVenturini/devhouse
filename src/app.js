@@ -1,10 +1,14 @@
 import express from 'express'; // Import the Express framework
-import routes from './routes'; // Import the routes module
+import mongoose from 'mongoose'; // Import the Mongoose library for MongoDB interactionq
+import routes from './routes.js'; // Import the routes module
 
 class App { // 2- Define the App class
 
     constructor() { // 3- Initialize the App class
         this.server = express(); // 5- Create an instance of the Express application
+
+        mongoose.connect('mongodb+srv://devHouse:devhouse@devhouse.2diofcj.mongodb.net/devhouse?appName=devHouse'); // 6- Connect to the MongoDB database
+
         this.middlewares(); // 8- Call the middlewares method to set up middleware
         this.routes(); // 9- Call the routes method to set up routes
     }
