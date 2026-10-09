@@ -1,9 +1,10 @@
 import { Router } from 'express'; // Import the Router class from the Express library
+import SessionController from './controllers/SessionController.js'; // Import the SessionController class from the controllers directory
 
 const routes = new Router(); // Create a new instance of the Express Router
 
-routes.get('/', (req, res) => { // Define a GET route for the root path
-    return res.json({ message: 'Serving is running on port 3333!' }); // Send a JSON response with a message
-});
+routes.post('/sessions', SessionController.store); // Define a GET route for '/sessions' that invokes the store method of the SessionController
+
+
 
 export default routes; // Export the routes instance
